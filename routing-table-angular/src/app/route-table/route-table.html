@@ -2,16 +2,28 @@
   <thead>
     <tr>
       <th (click)="sort('address')">Адрес назначения
-        <span *ngIf="sortColumn === 'address' && sortDirection === 'asc'" class="sort-icon">↑</span>
-        <span *ngIf="sortColumn === 'address' && sortDirection === 'desc'" class="sort-icon">↓</span>
+        <span *ngIf="sortColumn$ | async as sortColumn">
+          <span *ngIf="sortDirection$ | async as sortDirection">
+            <span *ngIf="sortColumn === 'address' && sortDirection === 'asc'" class="sort-icon">↑</span>
+            <span *ngIf="sortColumn === 'address' && sortDirection === 'desc'" class="sort-icon">↓</span>
+          </span>
+        </span>
       </th>
       <th (click)="sort('gateway')">Шлюз
-        <span *ngIf="sortColumn === 'gateway' && sortDirection === 'asc'" class="sort-icon">↑</span>
-        <span *ngIf="sortColumn === 'gateway' && sortDirection === 'desc'" class="sort-icon">↓</span>
+        <span *ngIf="sortColumn$ | async as sortColumn">
+          <span *ngIf="sortDirection$ | async as sortDirection">
+            <span *ngIf="sortColumn === 'gateway' && sortDirection === 'asc'" class="sort-icon">↑</span>
+            <span *ngIf="sortColumn === 'gateway' && sortDirection === 'desc'" class="sort-icon">↓</span>
+          </span>
+        </span>
       </th>
       <th (click)="sort('interface')">Интерфейс
-        <span *ngIf="sortColumn === 'interface' && sortDirection === 'asc'" class="sort-icon">↑</span>
-        <span *ngIf="sortColumn === 'interface' && sortDirection === 'desc'" class="sort-icon">↓</span>
+        <span *ngIf="sortColumn$ | async as sortColumn">
+          <span *ngIf="sortDirection$ | async as sortDirection">
+            <span *ngIf="sortColumn === 'interface' && sortDirection === 'asc'" class="sort-icon">↑</span>
+            <span *ngIf="sortColumn === 'interface' && sortDirection === 'desc'" class="sort-icon">↓</span>
+          </span>
+        </span>
       </th>
     </tr>
   </thead>
